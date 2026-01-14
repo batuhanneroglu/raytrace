@@ -3,6 +3,8 @@
 #include <cmath>
 #include <vector>
 
+#define IDI_ICON1 101
+
 int canvas_width = 800;
 int canvas_height = 600;
 const int SIDEBAR_WIDTH = 250;
@@ -511,13 +513,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     const char CLASS_NAME[] = "Raytracing";
     
-    WNDCLASSA wc = {};
+    WNDCLASSEXA wc = {};
+    wc.cbSize = sizeof(WNDCLASSEXA);
     wc.lpfnWndProc = WindowProc;
     wc.hInstance = hInstance;
     wc.lpszClassName = CLASS_NAME;
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wc.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
+    wc.hIconSm = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
     
-    RegisterClassA(&wc);
+    RegisterClassExA(&wc);
     
     RECT rect = {0, 0, canvas_width + SIDEBAR_WIDTH, canvas_height};
     AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);

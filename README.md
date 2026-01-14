@@ -21,13 +21,15 @@ This project is designed as an excellent learning tool for those who want to und
 Use the following command to compile the project:
 
 ```bash
-g++ main.cpp -o raytracer.exe -lgdi32 -luser32 -mwindows
+windres resource.rc -o resource.o
+g++ main.cpp resource.o -o raytracer.exe -lgdi32 -luser32 -mwindows
 ```
 
 Or with MSVC:
 
 ```bash
-cl main.cpp /Fe:raytracer.exe user32.lib gdi32.lib
+rc resource.rc
+cl main.cpp resource.res /Fe:raytracer.exe user32.lib gdi32.lib
 ```
 
 ### Running
