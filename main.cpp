@@ -509,7 +509,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
-    const char CLASS_NAME[] = "Raytracing2D";
+    const char CLASS_NAME[] = "Raytracing";
     
     WNDCLASSA wc = {};
     wc.lpfnWndProc = WindowProc;
@@ -522,7 +522,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     RECT rect = {0, 0, canvas_width + SIDEBAR_WIDTH, canvas_height};
     AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
     
-    HWND hwnd = CreateWindowExA(0, CLASS_NAME, "Raytracing 2D - Shape Editor",
+    HWND hwnd = CreateWindowExA(0, CLASS_NAME, "Raytracing Simulation",
         WS_OVERLAPPEDWINDOW, 100, 100, 
         rect.right - rect.left, rect.bottom - rect.top,
         NULL, NULL, hInstance, NULL);

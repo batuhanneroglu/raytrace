@@ -1,5 +1,7 @@
 # Raytrace Simulation
 
+![Raytracing Demo](images/screenshot.png)
+
 ## Overview
 
 This app is an interactive editor that lets you visualize real-time light propagation. You can observe how a light source interacts with surrounding objects and see how light and shadows change dynamically as you place geometric shapes. The application demonstrates classic ray tracing algorithms in a 2D environment in a vivid and interactive way.
