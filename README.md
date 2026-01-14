@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Raytrace Simulation
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This app is an interactive editor that lets you visualize real-time light propagation. You can observe how a light source interacts with surrounding objects and see how light and shadows change dynamically as you place geometric shapes. The application demonstrates classic ray tracing algorithms in a 2D environment in a vivid and interactive way.
+
+This project is designed as an excellent learning tool for those who want to understand fundamental concepts of computer graphics. With a user-friendly interface and real-time feedback, you can experiment with light, shadow, and ray casting concepts.
+
+## For Developers
+
+### Requirements
+
+- Windows operating system
+- C++ compiler such as MinGW or MSVC
+- Windows API (windows.h) support
+
+### Build
+
+Use the following command to compile the project:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+g++ main.cpp -o raytracer.exe -lgdi32 -luser32 -mwindows
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or with MSVC:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cl main.cpp /Fe:raytracer.exe user32.lib gdi32.lib
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Running
 
-## Learn More
+After compilation is complete, you can run the program directly:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+.\raytracer.exe
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Left Click:** Add a new circle by clicking on an empty area
+- **Drag:** Move the light source or shapes by dragging them
+- **Blue Handle:** Drag the blue circle handle to resize the selected shape
+- **Right Click:** Delete a shape by right-clicking on it
 
-## Deploy on Vercel
+### Code Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `Shape` class: Represents geometric shapes and ray-shape intersection tests
+- `Render()` function: Draws the entire scene, handles ray casting and visual elements
+- `WindowProc()`: Manages user input and handles mouse events
+- Ray casting loop: Casts rays 360 degrees from the light source and calculates collisions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Customizable Parameters
+
+Customize the program by changing the following values in the code:
+
+- `canvas_width` and `canvas_height`: Size of the drawing area
+- `SIDEBAR_WIDTH`: Width of the control panel on the right side
+- Ray count (360): Adjust visual quality with more or fewer rays
+- Grid size (20px): Change the density of grid segments

@@ -1,41 +1,53 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Compiled executables
+*.exe
+*.out
+*.app
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Object files
+*.o
+*.obj
+*.ko
+*.elf
 
-# testing
-/coverage
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.dylib
 
-# next.js
-/.next/
-/out/
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
 
-# production
-/build
+# Build directories
+build/
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
 
-# misc
-.DS_Store
-*.pem
+# IDE and editor files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+.idea/
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Temporary files
+*.tmp
+*.log
+*.bak
